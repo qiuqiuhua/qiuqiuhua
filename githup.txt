@@ -1,0 +1,6 @@
+git init
+git remote add origin https://github.com/qiuqiuhua/qiuqiuhua.git
+git pull origin master
+git add . 或  文件夹名
+git commit -m "本次更新说明"
+git push origin master
