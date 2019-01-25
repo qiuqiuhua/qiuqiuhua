@@ -7,21 +7,23 @@
     <link rel="stylesheet" href="/static/css/reset.css">
     <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
     <script>
-      // 使用rem适配
-      (function(){
-        let styleNode = document.createElement('style');
-        let w = document.documentElement.clientWidth/16;
-        styleNode.innerHTML = 'html{font-size:' + w + 'px!important}';
-        document.head.appendChild(styleNode);
-      })()
+      window.onload = function(){
+        // 使用rem适配
+        (function(){
+          let styleNode = document.createElement('style');
+          let w = document.documentElement.clientWidth/16;
+          styleNode.innerHTML = 'html{font-size:' + w + 'px!important}';
+          document.head.appendChild(styleNode);
+        })()
 
-      if ('addEventListener' in document) {
-        document.addEventListener('DOMContentLoaded', function() {
-          FastClick.attach(document.body);
-        }, false);
-      }
-      if(!window.Promise) {
-        document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+        if ('addEventListener' in document) {
+          document.addEventListener('DOMContentLoaded', function() {
+            FastClick.attach(document.body);
+          }, false);
+        }
+        if(!window.Promise) {
+          document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
+        }
       }
     </script>
   </head>

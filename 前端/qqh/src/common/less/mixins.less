@@ -4,15 +4,35 @@
 @bg-color1:#f0f0f0; // 页面背景色
 @font-color:#333; // 小标题字体颜色
 @font-size:15/@rem; // 小标题字体大小
+@font-spacing:0.18/@rem; // 小标题字间距
+@font-color1:#666; // 正文字体颜色
+@font-size1:14/@rem; // 正文字体大小
+@font-spacing1:0.17/@rem; // 正文字间距
 
 /* 清除浮动 */
 .clearfix () {
-  *zoom: 1;
   &::after {
     content: '';
     display: block;
     clear: both;
   }
+}
+
+/*显示省略号 一行*/
+.ellipsis () {
+  overflow:hidden;
+  white-space:nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}
+
+/*显示省略号 二行*/
+.ellipsis2 () {
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:2;
 }
 
 /* 设置内容块宽度，居中 */

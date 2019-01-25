@@ -12,6 +12,10 @@ export default {}
   @import '../../common/less/mixins';
 
   #head {
+    position:fixed;
+    z-index:100;
+    left:0;
+    top:0;
     width:100%;
     height:44/@rem;
     line-height:44/@rem;
