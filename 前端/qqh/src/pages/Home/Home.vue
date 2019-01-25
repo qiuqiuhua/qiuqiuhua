@@ -17,117 +17,45 @@
         </div>
         <div class="tabs">
           <div class="tab-item">
-            <img srcset="./images/tab1@2x.png 2x, ./images/tab1@3x.png 3x">
-            <p>宠物领养</p>
+            <router-link to="/pet_adopt">
+              <img srcset="./images/tab1@2x.png 2x, ./images/tab1@3x.png 3x">
+              <p>宠物领养</p>
+            </router-link>
           </div>
           <div class="tab-item">
-            <img srcset="./images/tab2@2x.png 2x, ./images/tab2@3x.png 3x">
-            <p>植物送养</p>
+            <router-link to="/plant_adopt">
+              <img srcset="./images/tab2@2x.png 2x, ./images/tab2@3x.png 3x">
+              <p>植物送养</p>
+            </router-link>
           </div>
           <div class="tab-item">
-            <img srcset="./images/tab3@2x.png 2x, ./images/tab3@3x.png 3x">
-            <p>寻找主人</p>
+            <router-link to="/pet_seek">
+              <img srcset="./images/tab3@2x.png 2x, ./images/tab3@3x.png 3x">
+              <p>寻找主人</p>
+            </router-link>
           </div>
           <div class="tab-item">
-            <img srcset="./images/tab4@2x.png 2x, ./images/tab4@3x.png 3x">
-            <p>文章推荐</p>
+            <router-link to="/article_recommendation">
+              <img srcset="./images/tab4@2x.png 2x, ./images/tab4@3x.png 3x">
+              <p>文章推荐</p>
+            </router-link>
           </div>
         </div>
         <div class="card">
           <div class="card-tabs">
-            <div class="card-tab active" @click="showNewContent">最新发布</div>
-            <div class="card-tab split"></div>
-            <div class="card-tab" @click="showNearContent">附近发布</div>
-          </div>
-          <div class="card-contents">
-            <div class="card-content content-new">
-              <ul>
-                <li>
-                  <div class="imgBox"><img src="./images/info1@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:萨萨</div>
-                      <div class="info">性别:公</div>
-                      <div class="info">年龄:1岁</div>
-                      <div class="info">地区:上海</div>
-                      <div class="desc">描述:因为本人怀孕家里不让养宠物，
-                        希望找一个爱狗人士送养，萨萨很乖，很听话</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-                <li>
-                  <div class="imgBox"><img src="./images/info2@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:兜兜</div>
-                      <div class="info">性别:公</div>
-                      <div class="info">年龄:4个月</div>
-                      <div class="info">地区:湖南</div>
-                      <div class="desc">描述:在某小区一群狗结伴流浪，怕被
-                        举报后一网打尽，朋友果断救下,望好心人收养。</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-                <li>
-                  <div class="imgBox"><img src="./images/info3@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:小柯</div>
-                      <div class="info">性别:母</div>
-                      <div class="info">年龄:6个月</div>
-                      <div class="info">地区:上海</div>
-                      <div class="desc">描述:因工作太忙，没有时间溜它，感
-                        觉已经快憋出内伤了，希望爱狗人士收养。</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-                <li>
-                  <div class="imgBox"><img src="./images/info4@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:百合花</div>
-                      <div class="info">年龄:8个月</div>
-                      <div class="info">地区:辽宁</div>
-                      <div class="desc">描述:因本人搬家不方便带走，希望会
-                        养的花人士来好好照顾。</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-                <li>
-                  <div class="imgBox"><img src="./images/info5@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:发财树</div>
-                      <div class="info">年龄:1年</div>
-                      <div class="info">地区:甘肃</div>
-                      <div class="desc">描述:因本人搬公司不方便带走，喜欢
-                        发财树的联系我。</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-                <li>
-                  <div class="imgBox"><img src="./images/info6@3x.png"></div>
-                  <div class="info_wrap">
-                    <div class="infos">
-                      <div class="info">名字:君子兰</div>
-                      <div class="info">年龄:3个月</div>
-                      <div class="info">地区:安徽</div>
-                      <div class="desc">描述:因为本人家里花太多了，放不开
-                        了，所以准备送人。</div>
-                    </div>
-                  </div>
-                  <div class="line"></div>
-                </li>
-              </ul>
+            <div class="card-tab">
+              <router-link to="/home/new_info" replace>最新发布</router-link>
             </div>
-            <div class="card-content content-near"></div>
+            <div class="card-tab split"></div>
+            <div class="card-tab">
+              <router-link to="/home/near_info" replace>附近发布</router-link>
+            </div>
           </div>
+          <keep-alive>
+            <router-view/>
+          </keep-alive>
         </div>
+        <p class="underline">我是有底线的</p>
       </div>
     </div>
 </template>
@@ -153,12 +81,6 @@ export default {
       },
       autoplay: true
     })
-  },
-
-  methods: {
-    showNewContent () {
-
-    }
   },
 
   components: {
@@ -216,19 +138,22 @@ export default {
        display:flex;
        justify-content:space-between;
        .tab-item {
-         text-align:center;
-         font-size:@font-size;
-         color:@font-color;
-         width:61/@rem;
-         letter-spacing: @font-spacing;
-         img {
-           width:50/@rem;
-           height:50/@rem;
-         }
-         p {
-           height:21/@rem;
-           line-height:21/@rem;
-           margin-top:8/@rem;
+         a {
+           display:block;
+           text-align:center;
+           font-size:@font-size;
+           color:@font-color;
+           width:61/@rem;
+           letter-spacing: @font-spacing;
+           img {
+             width:50/@rem;
+             height:50/@rem;
+           }
+           p {
+             height:21/@rem;
+             line-height:21/@rem;
+             margin-top:8/@rem;
+           }
          }
        }
      }
@@ -254,68 +179,21 @@ export default {
              width: 1/@rem;
              background:#DFDFDF;
            }
-           &.active {
+           .router-link-active {
              color: #FF9898;
            }
          }
        }
-       .card-contents {
-         .card-content {
-           > ul {
-             > li {
-               position:relative;
-               width: 100%;
-               height: 118/@rem;
-               padding: 11/@rem 22/@rem 11/@rem 16/@rem;
-               box-sizing:border-box;
-               .imgBox {
-                 width: 90/@rem;
-                 height: 90/@rem;
-                 border-radius: 10/@rem;
-                 display:inline-block;
-                 vertical-align:middle;
-                 img {
-                   width: 100%;
-                 }
-               }
-               .info_wrap {
-                 display:inline-block;
-                 vertical-align:middle;
-                 padding-left: 16/@rem;
-                 .infos {
-                   line-height: 20/@rem;
-                   font-size:@font-size1;
-                   color:@font-color1;
-                   letter-spacing: @font-spacing1;
-                   width:222/@rem;
-                   .info {
-                     float: left;
-                     width: 50%;
-                     margin-bottom:8/@rem;
-                   }
-                   .desc {
-                     width:100%;
-                     .ellipsis2();
-                   }
-                 }
-               }
-               .line {
-                 width: 269/@rem;
-                 height: 1/@rem;
-                 background:#f0f0f0;
-                 position:absolute;
-                 right:0;
-                 bottom:0;
-               }
-               &:last-child{
-                 .line {
-                   display:none;
-                 }
-               }
-             }
-           }
-         }
-       }
+     }
+     .underline {
+       font-size:12/@rem;
+       line-height:17/@rem;
+       letter-spacing: @font-spacing1;
+       color: #B9B9B9;
+       width:100%;
+       padding-top:8/@rem;
+       padding-bottom:30/@rem;
+       text-align:center;
      }
    }
  }
