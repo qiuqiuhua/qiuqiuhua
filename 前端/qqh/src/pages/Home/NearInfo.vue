@@ -11,8 +11,7 @@
                   <div class="info">性别:公</div>
                   <div class="info">年龄:1岁</div>
                   <div class="info">地区:上海</div>
-                  <div class="desc">描述:因为本人怀孕家里不让养宠物，
-                    希望找一个爱狗人士送养，萨萨很乖，很听话</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因为本人怀孕家里不让养宠物，希望找一个爱狗人士送养，萨萨很乖，很听话</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -25,8 +24,7 @@
                   <div class="info">性别:母</div>
                   <div class="info">年龄:6个月</div>
                   <div class="info">地区:上海</div>
-                  <div class="desc">描述:因工作太忙，没有时间溜它，感
-                    觉已经快憋出内伤了，希望爱狗人士收养。</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因工作太忙，没有时间溜它，感觉已经快憋出内伤了，希望爱狗人士收养。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -81,7 +79,11 @@ export default {}
               }
               .desc {
                 width:100%;
-                .ellipsis2();
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
               }
             }
           }

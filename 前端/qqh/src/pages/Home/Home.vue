@@ -43,10 +43,9 @@
         </div>
         <div class="card">
           <div class="card-tabs">
-            <div class="card-tab">
+            <div class="card-tab left">
               <router-link to="/home/new_info" replace>最新发布</router-link>
             </div>
-            <div class="card-tab split"></div>
             <div class="card-tab">
               <router-link to="/home/near_info" replace>附近发布</router-link>
             </div>
@@ -102,6 +101,7 @@ export default {
      .swiper-container {
        width: 100%;
        height: 160/@rem;
+       background:#fff;
        .swiper-wrapper {
          width: 100%;
          height: 100%;
@@ -114,15 +114,12 @@ export default {
          }
        }
        .swiper-pagination {
-         width: auto;
+         text-align:right;
+         right:32/@rem;
          left:auto;
-         right: 32/@rem;
-         bottom: 10/@rem;
          .swiper-pagination-bullet {
            background:#F0F0F0;
            margin: 0 0 0 12/@rem;
-           width:6/@rem;
-           height:6/@rem;
          }
          .swiper-pagination-bullet-active {
            background:#9E9E9E;
@@ -170,17 +167,19 @@ export default {
            float:left;
            height: 21/@rem;
            line-height: 21/@rem;
-           width: 187/@rem;
+           width: 50%;
+           box-sizing:border-box;
            text-align:center;
            font-size:@font-size;
-           color:@font-color;
            letter-spacing: @font-spacing;
-           &.split {
-             width: 1/@rem;
-             background:#DFDFDF;
+           &.left {
+             border-right:1px solid #DFDFDF;
+           }
+           a {
+             color:@font-color;
            }
            .router-link-active {
-             color: #FF9898;
+             color: @font-color2;
            }
          }
        }
@@ -194,6 +193,7 @@ export default {
        padding-top:8/@rem;
        padding-bottom:30/@rem;
        text-align:center;
+       margin-bottom:50/@rem;
      }
    }
  }

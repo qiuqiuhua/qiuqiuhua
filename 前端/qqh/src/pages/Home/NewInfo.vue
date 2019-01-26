@@ -11,8 +11,7 @@
                   <div class="info">性别:公</div>
                   <div class="info">年龄:1岁</div>
                   <div class="info">地区:上海</div>
-                  <div class="desc">描述:因为本人怀孕家里不让养宠物，
-                    希望找一个爱狗人士送养，萨萨很乖，很听话</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因为本人怀孕家里不让养宠物，希望找一个爱狗人士送养，萨萨很乖，很听话</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -25,8 +24,7 @@
                   <div class="info">性别:公</div>
                   <div class="info">年龄:4个月</div>
                   <div class="info">地区:湖南</div>
-                  <div class="desc">描述:在某小区一群狗结伴流浪，怕被
-                    举报后一网打尽，朋友果断救下,望好心人收养。</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:在某小区一群狗结伴流浪，怕被举报后一网打尽，朋友果断救下,望好心人收养。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -39,8 +37,7 @@
                   <div class="info">性别:母</div>
                   <div class="info">年龄:6个月</div>
                   <div class="info">地区:上海</div>
-                  <div class="desc">描述:因工作太忙，没有时间溜它，感
-                    觉已经快憋出内伤了，希望爱狗人士收养。</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因工作太忙，没有时间溜它，感觉已经快憋出内伤了，希望爱狗人士收养。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -52,8 +49,7 @@
                   <div class="info">名字:百合花</div>
                   <div class="info">年龄:8个月</div>
                   <div class="info">地区:辽宁</div>
-                  <div class="desc">描述:因本人搬家不方便带走，希望会
-                    养的花人士来好好照顾。</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因本人搬家不方便带走，希望会养的花人士来好好照顾。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -65,8 +61,7 @@
                   <div class="info">名字:发财树</div>
                   <div class="info">年龄:1年</div>
                   <div class="info">地区:甘肃</div>
-                  <div class="desc">描述:因本人搬公司不方便带走，喜欢
-                    发财树的联系我。</div>
+                  <div class="desc" style="-webkit-box-orient: vertical;">描述:因本人搬公司不方便带走，喜欢发财树的联系我。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -78,8 +73,7 @@
                   <div class="info">名字:君子兰</div>
                   <div class="info">年龄:3个月</div>
                   <div class="info">地区:安徽</div>
-                  <div class="desc">描述:因为本人家里花太多了，放不开
-                    了，所以准备送人。</div>
+                  <div class="desc"  style="-webkit-box-orient: vertical;">描述:因为本人家里花太多了，放不开了，所以准备送人。</div>
                 </div>
               </div>
               <div class="line"></div>
@@ -134,7 +128,11 @@ export default {}
               }
               .desc {
                 width:100%;
-                .ellipsis2();
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
               }
             }
           }

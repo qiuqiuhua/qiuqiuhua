@@ -8,6 +8,7 @@
 @font-color1:#666; // 正文字体颜色
 @font-size1:14/@rem; // 正文字体大小
 @font-spacing1:0.17/@rem; // 正文字间距
+@font-color2:#FF9898; // 当前选中文字颜色
 
 /* 清除浮动 */
 .clearfix () {
@@ -93,120 +94,6 @@
   z-index:1210;
 }
 
-/* 插入图片、音频、视频框样式 */
-.alert_container () {
-  .modal();
-  .insertImgBox {
-    width:390px;
-    color: #838383;
-    background:#fff;
-    border-radius:5px;
-    .showCenter();
-    .title {
-      height:30px;
-      line-height:30px;
-      padding-left:10px;
-      background:#999;
-      color:#fff;
-      font-size: 12px;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-    }
-    .errMsg {
-      .errMsg();
-      font-size:12px;
-      line-height:21px;
-    }
-    table {
-      font-size: 12px;
-      margin: 10px;
-      margin-top:0;
-      line-height: 30px;
-      .txt {
-        width:300px;
-        height:21px;
-        line-height:21px;
-        border:1px solid #d7d7d7;
-      }
-      #img_upload {
-        border:none;
-      }
-      #img_thum {
-        max-width:50%;
-      }
-      .progressBar {
-        width:200px;
-        height:30px;
-        line-height:30px;
-        background:#fff;
-        border:1px solid #1483d8;
-        color:#6dbfff;
-        text-align:center;
-        font-size:12px;
-        position:relative;
-        .progressText {
-          width:200px;
-          height:30px;
-          line-height:30px;
-          background:transparent;
-          color:#6dbfff;
-          text-align:center;
-          font-size:12px;
-          position:absolute;
-          z-index:1;
-        }
-        .uploaded {
-          height:30px;
-          background:#1483d8;
-          position:absolute;
-          top:0;
-          left:0;
-        }
-      }
-    }
-    p {
-      padding:0 50px 40px;
-      a {
-        display:block;
-        float:left;
-        margin:0 40px;
-        width:60px;
-        height:20px;
-        line-height:20px;
-        background:#f2f2f2;
-        color:#666;
-        text-align:center;
-        font-size:12px;
-        border-radius:4px;
-        border:1px solid #ccc;
-        cursor: pointer;
-      }
-      .sureBtn {
-        display:block;
-        float:left;
-        margin:0 40px;
-        width:60px;
-        height:20px;
-        line-height:20px;
-        background:#f2f2f2;
-        color:#666;
-        text-align:center;
-        font-size:12px;
-        border-radius:4px;
-        border:1px solid #ccc;
-        cursor: pointer;
-      }
-    }
-    .closeBtn {
-      position:absolute;
-      top:2px;
-      right:10px;
-      font-size:18px;
-      color:#fff;
-    }
-  }
-}
-
 .top-border-1px(top,@color:black){
   position: relative;
   &:before{
@@ -245,10 +132,10 @@
   }
 }
 
-.bg-image(@url) {
-  background-image: url('@{url}@2x.png');
+.bg-image(@url){
+  background-image:~"url(@{url}@2x.png)";
   @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3){
-    background-image: url('@{url}@3x.png');
+    background-image:~"url(@{url}@3x.png)";
   }
 }
 
