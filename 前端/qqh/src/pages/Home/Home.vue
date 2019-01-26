@@ -6,11 +6,31 @@
       <div class="content">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide"><img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x"></div>
-            <div class="swiper-slide"><img srcset="./images/banner2@2x.png 2x, ./images/banner2@3x.png 3x"></div>
-            <div class="swiper-slide"><img srcset="./images/banner3@2x.png 2x, ./images/banner3@3x.png 3x"></div>
-            <div class="swiper-slide"><img srcset="./images/banner4@2x.png 2x, ./images/banner4@3x.png 3x"></div>
-            <div class="swiper-slide"><img srcset="./images/banner5@2x.png 2x, ./images/banner5@3x.png 3x"></div>
+            <div class="swiper-slide">
+              <router-link to="/art_detail">
+                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+              </router-link>
+            </div>
+            <div class="swiper-slide">
+              <router-link to="/art_detail">
+                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+              </router-link>
+            </div>
+            <div class="swiper-slide">
+              <router-link to="/art_detail">
+                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+              </router-link>
+            </div>
+            <div class="swiper-slide">
+              <router-link to="/art_detail">
+                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+              </router-link>
+            </div>
+            <div class="swiper-slide">
+              <router-link to="/art_detail">
+                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+              </router-link>
+            </div>
           </div>
           <!-- 如果需要分页器 -->
           <div class="swiper-pagination"></div>
@@ -118,6 +138,8 @@ export default {
          right:32/@rem;
          left:auto;
          .swiper-pagination-bullet {
+           width: 6/@rem;
+           height: 6/@rem;
            background:#F0F0F0;
            margin: 0 0 0 12/@rem;
          }

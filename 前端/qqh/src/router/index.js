@@ -8,6 +8,7 @@ import PetAdopt from '../pages/PetAdopt/PetAdopt.vue'
 import PlantAdopt from '../pages/PlantAdopt/PlantAdopt.vue'
 import PetSeek from '../pages/PetSeek/PetSeek.vue'
 import ArticleRecommendation from '../pages/ArticleRecommendation/ArticleRecommendation.vue'
+import ArtDetail from '../pages/ArtDetail/ArtDetail.vue'
 
 import Talk from '../pages/Talk/Talk.vue'
 import Release from '../pages/Release/Release.vue'
@@ -40,6 +41,10 @@ export default new Router({
           component: NearInfo
         }
       ]
+    },
+    {
+      path: '/art_detail',
+      component: ArtDetail
     },
     {
       path: '/pet_adopt',
