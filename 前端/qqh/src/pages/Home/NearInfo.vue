@@ -3,9 +3,10 @@
       <div class="card-contents" id="near_info">
         <div class="card-content">
           <ul>
-            <li @click="$router.push('/art_detail')">
-              <div class="imgBox"><img src="./images/info1@3x.png"></div>
-              <div class="info_wrap">
+            <li>
+              <router-link to="/art_detail">
+                <div class="imgBox"><img src="./images/info1@3x.png"></div>
+                <div class="info_wrap">
                   <div class="infos">
                     <div class="info">名字:萨萨</div>
                     <div class="info">性别:公</div>
@@ -14,11 +15,13 @@
                     <div class="desc" style="-webkit-box-orient: vertical;">描述:因为本人怀孕家里不让养宠物，希望找一个爱狗人士送养，萨萨很乖，很听话</div>
                   </div>
                 </div>
-              <div class="line"></div>
+                <div class="line"></div>
+              </router-link>
             </li>
-            <li @click="$router.push('/art_detail')">
-              <div class="imgBox"><img src="./images/info3@3x.png"></div>
-              <div class="info_wrap">
+            <li>
+              <router-link to="/art_detail">
+                <div class="imgBox"><img src="./images/info3@3x.png"></div>
+                <div class="info_wrap">
                   <div class="infos">
                     <div class="info">名字:小柯</div>
                     <div class="info">性别:母</div>
@@ -27,7 +30,8 @@
                     <div class="desc" style="-webkit-box-orient: vertical;">描述:因工作太忙，没有时间溜它，感觉已经快憋出内伤了，希望爱狗人士收养。</div>
                   </div>
                 </div>
-              <div class="line"></div>
+                <div class="line"></div>
+              </router-link>
             </li>
           </ul>
         </div>

@@ -36,29 +36,31 @@
           <div class="swiper-pagination"></div>
         </div>
         <div class="tabs">
-          <div class="tab-item">
-            <router-link to="/pet_adopt">
-              <img srcset="./images/tab1@2x.png 2x, ./images/tab1@3x.png 3x">
-              <p>宠物领养</p>
-            </router-link>
-          </div>
-          <div class="tab-item">
-            <router-link to="/plant_adopt">
-              <img srcset="./images/tab2@2x.png 2x, ./images/tab2@3x.png 3x">
-              <p>植物送养</p>
-            </router-link>
-          </div>
-          <div class="tab-item">
-            <router-link to="/pet_seek">
-              <img srcset="./images/tab3@2x.png 2x, ./images/tab3@3x.png 3x">
-              <p>寻找主人</p>
-            </router-link>
-          </div>
-          <div class="tab-item">
-            <router-link to="/article_recommendation">
-              <img srcset="./images/tab4@2x.png 2x, ./images/tab4@3x.png 3x">
-              <p>文章推荐</p>
-            </router-link>
+          <div class="tab-items">
+            <div class="tab-item">
+              <router-link to="/pet_adopt">
+                <img srcset="./images/tab1@2x.png 2x, ./images/tab1@3x.png 3x">
+                <p>宠物领养</p>
+              </router-link>
+            </div>
+            <div class="tab-item">
+              <router-link to="/plant_adopt">
+                <img srcset="./images/tab2@2x.png 2x, ./images/tab2@3x.png 3x">
+                <p>植物送养</p>
+              </router-link>
+            </div>
+            <div class="tab-item">
+              <router-link to="/pet_seek">
+                <img srcset="./images/tab3@2x.png 2x, ./images/tab3@3x.png 3x">
+                <p>寻找主人</p>
+              </router-link>
+            </div>
+            <div class="tab-item">
+              <router-link to="/article_recommendation">
+                <img srcset="./images/tab4@2x.png 2x, ./images/tab4@3x.png 3x">
+                <p>文章推荐</p>
+              </router-link>
+            </div>
           </div>
         </div>
         <div class="card">
@@ -138,8 +140,6 @@ export default {
          right:32/@rem;
          left:auto;
          .swiper-pagination-bullet {
-           width: 6/@rem;
-           height: 6/@rem;
            background:#F0F0F0;
            margin: 0 0 0 12/@rem;
          }
@@ -153,28 +153,32 @@ export default {
        box-sizing:border-box;
        height:100/@rem;
        background:#fff;
-       padding:12/@rem 20/@rem 9/@rem;
-       display:flex;
-       justify-content:space-between;
-       .tab-item {
-         a {
-           display:block;
-           text-align:center;
-           font-size:@font-size;
-           color:@font-color;
-           width:61/@rem;
-           letter-spacing: @font-spacing;
-           img {
-             width:50/@rem;
-             height:50/@rem;
-           }
-           p {
-             height:21/@rem;
-             line-height:21/@rem;
-             margin-top:8/@rem;
+       padding:12/@rem 15/@rem 9/@rem;
+       .tab-items {
+         width:345/@rem;
+         display:flex;
+         justify-content:space-between;
+         .tab-item {
+           a {
+             display:block;
+             text-align:center;
+             font-size:@font-size;
+             color:@font-color;
+             width:80/@rem;
+             letter-spacing: @font-spacing;
+             img {
+               width:50/@rem;
+               height:50/@rem;
+             }
+             p {
+               height:21/@rem;
+               line-height:21/@rem;
+               margin-top:8/@rem;
+             }
            }
          }
        }
+
      }
      .card {
        width: 100%;

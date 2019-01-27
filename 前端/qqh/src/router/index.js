@@ -17,8 +17,33 @@ import Mine from '../pages/Mine/Mine.vue'
 
 Vue.use(Router)
 
+const scrollBehavior = (to, from, savedPosition) => {
+  if (savedPosition) {
+    // savedPosition is only available for popstate navigations.
+    return savedPosition
+  } else {
+    const position = {}
+    // new navigation.
+    // scroll to anchor by returning the selector
+    if (to.hash) {
+      position.selector = to.hash
+    }
+    // check if any matched route config has meta that requires scrolling to top
+    if (to.matched.some(m => m.meta.scrollToTop)) {
+      // cords will be used if no selector is provided,
+      // or if the selector didn't match any element.
+      position.x = 0
+      position.y = 0
+    }
+    // if the returned position is falsy or an empty object,
+    // will retain current scroll position.
+    return position
+  }
+}
+
 export default new Router({
   mode: 'history',
+  scrollBehavior,
   routes: [
     {
       path: '/',
@@ -27,6 +52,9 @@ export default new Router({
     {
       path: '/home',
       component: Home,
+      meta: {
+        showFooter: true
+      },
       children: [
         {
           path: '',
@@ -34,49 +62,91 @@ export default new Router({
         },
         {
           path: '/home/new_info',
-          component: NewInfo
+          component: NewInfo,
+          meta: {
+            showFooter: true
+          }
         },
         {
           path: '/home/near_info',
-          component: NearInfo
+          component: NearInfo,
+          meta: {
+            showFooter: true
+          }
         }
       ]
     },
     {
       path: '/art_detail',
-      component: ArtDetail
+      component: ArtDetail,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/pet_adopt',
-      component: PetAdopt
+      component: PetAdopt,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/plant_adopt',
-      component: PlantAdopt
+      component: PlantAdopt,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/pet_seek',
-      component: PetSeek
+      component: PetSeek,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/article_recommendation',
-      component: ArticleRecommendation
+      component: ArticleRecommendation,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/talk',
-      component: Talk
+      component: Talk,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/release',
-      component: Release
+      component: Release,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/show',
-      component: Show
+      component: Show,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     },
     {
       path: '/mine',
-      component: Mine
+      component: Mine,
+      meta: {
+        showFooter: true,
+        scrollToTop: true
+      }
     }
   ]
 })
