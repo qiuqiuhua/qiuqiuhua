@@ -6,29 +6,9 @@
       <div class="content">
         <div class="swiper-container">
           <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <router-link to="/art_detail">
-                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
-              </router-link>
-            </div>
-            <div class="swiper-slide">
-              <router-link to="/art_detail">
-                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
-              </router-link>
-            </div>
-            <div class="swiper-slide">
-              <router-link to="/art_detail">
-                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
-              </router-link>
-            </div>
-            <div class="swiper-slide">
-              <router-link to="/art_detail">
-                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
-              </router-link>
-            </div>
-            <div class="swiper-slide">
-              <router-link to="/art_detail">
-                <img srcset="./images/banner1@2x.png 2x, ./images/banner1@3x.png 3x">
+            <div class="swiper-slide" v-for="(swiper, index) in swipers" :key="index">
+              <router-link :to="`/art_detail/${swiper.articleId}`">
+                <img :src="swiper.imgSrc">
               </router-link>
             </div>
           </div>
@@ -82,6 +62,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import Header from '../../components/Header/Header.vue'
@@ -94,14 +75,26 @@ export default {
   },
 
   mounted () {
-    /* eslint-disable no-new */
-    new Swiper('.swiper-container', {
-      loop: true, //  可以循环轮播
-      pagination: { //  分页器
-        el: '.swiper-pagination'
-      },
-      autoplay: true
-    })
+    this.$store.dispatch('getSwiper')
+  },
+
+  computed: {
+    ...mapState(['swipers'])
+  },
+
+  watch: {
+    swipers (value) {
+      this.$nextTick(() => {
+        /* eslint-disable no-new */
+        new Swiper('.swiper-container', {
+          loop: true, //  可以循环轮播
+          pagination: { //  分页器
+            el: '.swiper-pagination'
+          },
+          autoplay: true
+        })
+      })
+    }
   },
 
   components: {
@@ -142,6 +135,7 @@ export default {
          .swiper-pagination-bullet {
            background:#F0F0F0;
            margin: 0 0 0 12/@rem;
+           opacity:1;
          }
          .swiper-pagination-bullet-active {
            background:#9E9E9E;
@@ -164,7 +158,6 @@ export default {
              text-align:center;
              font-size:@font-size;
              color:@font-color;
-             width:80/@rem;
              letter-spacing: @font-spacing;
              img {
                width:50/@rem;

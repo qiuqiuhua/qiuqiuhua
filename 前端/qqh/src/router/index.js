@@ -77,7 +77,7 @@ export default new Router({
       ]
     },
     {
-      path: '/art_detail',
+      path: '/art_detail/:articleId',
       component: ArtDetail,
       meta: {
         showFooter: true,

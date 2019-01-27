@@ -9,6 +9,4 @@ let swiper = Mock.mock({
   }]
 })
 
-console.log(JSON.stringify(swiper))
-
 Mock.mock('/swiper', {data: swiper.list})

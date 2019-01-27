@@ -81,6 +81,7 @@ export default {}
             }
             .desc {
               width:100%;
+              text-align:justify;
               text-overflow: ellipsis;
               display: -webkit-box;
               -webkit-line-clamp: 2;

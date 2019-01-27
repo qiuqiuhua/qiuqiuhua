@@ -136,6 +136,7 @@ export default {}
             }
             .desc {
               width:100%;
+              text-align:justify;
               text-overflow: ellipsis;
               display: -webkit-box;
               -webkit-box-orient: vertical;

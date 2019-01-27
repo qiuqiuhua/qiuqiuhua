@@ -5,3 +5,4 @@ import ajax from './ajax'
 
 export const SERVER_URL = `/MulinArticle/`
 
+export const reqSwiper = () => ajax('/swiper')
