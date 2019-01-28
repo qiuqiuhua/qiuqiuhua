@@ -1,0 +1,34 @@
+首页：轮播图
+接口名：swiper
+数据模板：swiper.json
+字段说明:
+articleId:所要链接的文章ID
+imgSrc:轮播图图片路径
+
+
+首页：最新发布
+接口名：newInfo
+数据模板：newInfo.json
+字段说明:
+articleId: 文章ID
+type: 类型（动物，植物）
+nick: 昵称
+sex: 动物性别（公，母）
+age: 年龄
+addr: 所在地（省）
+imgSrc: 图片路径
+desc: 描述
+
+
+首页：附近发布
+接口名：nearInfo
+数据模板：nearInfo.json
+字段说明:
+articleId: 文章ID
+type: 类型（动物，植物）
+nick: 昵称
+sex: 动物性别（公，母）
+age: 年龄
+addr: 所在地（省）
+imgSrc: 图片路径
+desc: 描述
