@@ -108,8 +108,6 @@ export default {
         let province = position.address.province    // 获取省份信息
         _this.province = province
         _this.$store.state.province = province
-        alert('省：' + province)
-        alert('市：' + city)
       }, function (e) {
         console.log('定位失败')
       }, {provider: 'baidu'})
