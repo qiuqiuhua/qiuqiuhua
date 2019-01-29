@@ -21,9 +21,10 @@ export default {
   },
 
   // 获取最近发布
-  async getNearInfo ({commit}) {
-    const result = await reqNearInfo()
-    const nearInfo = result.data
-    commit('setNearInfo', {nearInfo})
+  async getNearInfo ({commit, state}) {
+    const province = state.province
+    const result = await reqNearInfo({province})
+    const nearInfos = result.data
+    commit('setNearInfo', {nearInfos})
   }
 }

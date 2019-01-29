@@ -2,88 +2,16 @@
     <div>
         <div class="card-content" id="new_info">
           <ul>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info1@3x.png"></div>
+            <li v-for="(info, index) in newInfos" :key="index">
+              <router-link :to="`/art_detail${info.articleId}`">
+                <div class="imgBox"><img :src="info.imgSrc"></div>
                 <div class="info_wrap">
                   <div class="infos">
-                    <div class="info">名字:萨萨</div>
-                    <div class="info">性别:公</div>
-                    <div class="info">年龄:1岁</div>
-                    <div class="info">地区:上海</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:因为本人怀孕家里不让养宠物，希望找一个爱狗人士送养，萨萨很乖，很听话</div>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info2@3x.png"></div>
-                <div class="info_wrap">
-                  <div class="infos">
-                    <div class="info">名字:兜兜</div>
-                    <div class="info">性别:公</div>
-                    <div class="info">年龄:4个月</div>
-                    <div class="info">地区:湖南</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:在某小区一群狗结伴流浪，怕被举报后一网打尽，朋友果断救下,望好心人收养。</div>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info3@3x.png"></div>
-                <div class="info_wrap">
-                  <div class="infos">
-                    <div class="info">名字:小柯</div>
-                    <div class="info">性别:母</div>
-                    <div class="info">年龄:6个月</div>
-                    <div class="info">地区:上海</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:因工作太忙，没有时间溜它，感觉已经快憋出内伤了，希望爱狗人士收养。</div>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info4@3x.png"></div>
-                <div class="info_wrap">
-                  <div class="infos">
-                    <div class="info">名字:百合花</div>
-                    <div class="info">年龄:8个月</div>
-                    <div class="info">地区:辽宁</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:因本人搬家不方便带走，希望会养的花人士来好好照顾。</div>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info5@3x.png"></div>
-                <div class="info_wrap">
-                  <div class="infos">
-                    <div class="info">名字:发财树</div>
-                    <div class="info">年龄:1年</div>
-                    <div class="info">地区:甘肃</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:因本人搬公司不方便带走，喜欢发财树的联系我。</div>
-                  </div>
-                </div>
-                <div class="line"></div>
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/art_detail">
-                <div class="imgBox"><img src="./images/info6@3x.png"></div>
-                <div class="info_wrap">
-                  <div class="infos">
-                    <div class="info">名字:君子兰</div>
-                    <div class="info">年龄:3个月</div>
-                    <div class="info">地区:安徽</div>
-                    <div class="desc"  style="-webkit-box-orient: vertical;">描述:因为本人家里花太多了，放不开了，所以准备送人。</div>
+                    <div class="info">名字:{{info.nick}}</div>
+                    <div class="info" v-show="info.type === '动物'">性别:{{info.sex}}</div>
+                    <div class="info">年龄:{{info.age}}</div>
+                    <div class="info">地区:{{info.addr}}</div>
+                    <div class="desc" style="-webkit-box-orient: vertical;">描述:{{info.desc}}</div>
                   </div>
                 </div>
                 <div class="line"></div>
@@ -95,7 +23,17 @@
 </template>
 
 <script>
-export default {}
+import {mapState} from 'vuex'
+
+export default {
+  mounted () {
+    this.$store.dispatch('getNewInfo')
+  },
+
+  computed: {
+    ...mapState(['newInfos'])
+  }
+}
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>

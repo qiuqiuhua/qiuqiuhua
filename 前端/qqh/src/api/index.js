@@ -13,4 +13,4 @@ export const reqSwiper = () => ajax('/swiper')
 export const reqNewInfo = () => ajax('/newInfo')
 
 // 首页附近发布
-export const reqNearInfo = () => ajax('/nearInfo')
+export const reqNearInfo = ({province}) => ajax('/nearInfo', {province})

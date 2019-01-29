@@ -53,4 +53,4 @@ let nearInfo = Mock.mock({
   }]
 })
 
-Mock.mock('/newInfo', {data: nearInfo.list})
+Mock.mock('/nearInfo', {data: nearInfo.list})
