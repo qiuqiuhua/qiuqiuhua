@@ -7,11 +7,11 @@
                 <div class="imgBox"><img :src="info.imgSrc"></div>
                 <div class="info_wrap">
                   <div class="infos">
-                    <div class="info">名字:{{info.nick}}</div>
-                    <div class="info" v-show="info.type === '动物'">性别:{{info.sex}}</div>
-                    <div class="info">年龄:{{info.age}}</div>
-                    <div class="info">地区:{{info.addr}}</div>
-                    <div class="desc" style="-webkit-box-orient: vertical;">描述:{{info.desc}}</div>
+                    <div class="info">名字：{{info.nick}}</div>
+                    <div class="info" v-show="info.type === '动物'">性别：{{info.sex}}</div>
+                    <div class="info">年龄：{{info.age}}</div>
+                    <div class="info">地区：{{info.addr}}</div>
+                    <div class="desc" style="-webkit-box-orient: vertical;">描述：{{info.desc}}</div>
                   </div>
                 </div>
                 <div class="line"></div>
