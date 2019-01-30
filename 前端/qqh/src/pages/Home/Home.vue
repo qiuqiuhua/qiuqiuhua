@@ -32,7 +32,7 @@
             <div class="tab-item">
               <router-link to="/pet_seek">
                 <img srcset="./images/tab3@2x.png 2x, ./images/tab3@3x.png 3x">
-                <p>寻找主人</p>
+                <p>寻找宠物</p>
               </router-link>
             </div>
             <div class="tab-item">
