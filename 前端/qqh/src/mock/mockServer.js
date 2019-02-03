@@ -54,3 +54,30 @@ let nearInfo = Mock.mock({
 })
 
 Mock.mock('/nearInfo', {data: nearInfo.list})
+
+// 宠物领养页面
+let petImgArr = [
+  'http://qiuqiuhua.com/upload/img/info1@3x.png',
+  'http://qiuqiuhua.com/upload/img/info2@3x.png',
+  'http://qiuqiuhua.com/upload/img/info3@3x.png',
+  'http://qiuqiuhua.com/upload/img/info7@3x.png',
+  'http://qiuqiuhua.com/upload/img/info8@3x.png',
+  'http://qiuqiuhua.com/upload/img/info9@3x.png',
+  'http://qiuqiuhua.com/upload/img/info10@3x.png',
+  'http://qiuqiuhua.com/upload/img/info11@3x.png'
+]
+
+let petAdoptInfo = Mock.mock({
+  'totalNum': 45,
+  'list|10': [{
+    'articleId|1-1000': 1,
+    'nick': '@cword(2, 5)',
+    'sex|1': sexArr,
+    'age|1': ageArr,
+    'addr': '上海',
+    'imgSrc|1': petImgArr,
+    'desc': '@cword(5,40)'
+  }]
+})
+
+Mock.mock('/petAdoptInfo', {data: petAdoptInfo})

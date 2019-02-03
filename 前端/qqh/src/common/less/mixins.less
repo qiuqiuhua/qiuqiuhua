@@ -139,3 +139,105 @@
   }
 }
 
+/*信息列表样式*/
+.list_info () {
+  ul {
+    background:#fff;
+    li {
+      position:relative;
+      width: 100%;
+      height: 118/@rem;
+      padding: 11/@rem 22/@rem 11/@rem 16/@rem;
+      box-sizing:border-box;
+      .imgBox {
+        width: 90/@rem;
+        height: 90/@rem;
+        border-radius: 10/@rem;
+        display:inline-block;
+        vertical-align:middle;
+        img {
+          width: 100%;
+        }
+      }
+      .info_wrap {
+        display:inline-block;
+        vertical-align:middle;
+        padding-left: 16/@rem;
+        .infos {
+          line-height: 20/@rem;
+          font-size:@font-size1;
+          color:@font-color1;
+          letter-spacing: @font-spacing1;
+          width:222/@rem;
+          .info {
+            float: left;
+            width: 50%;
+            margin-bottom:8/@rem;
+            .ellipsis();
+          }
+          .desc {
+            width:100%;
+            text-align:justify;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+          }
+        }
+      }
+      .line {
+        width: 269/@rem;
+        height: 1/@rem;
+        background:#f0f0f0;
+        position:absolute;
+        right:0;
+        bottom:0;
+      }
+      &:last-child{
+        .line {
+          display:none;
+        }
+      }
+    }
+    .underline {
+      background:#f0f0f0;
+      box-sizing:border-box;
+      font-size:12/@rem;
+      height: 55/@rem;
+      line-height:17/@rem;
+      letter-spacing: @font-spacing1;
+      color: #B9B9B9;
+      width:100%;
+      padding-top:8/@rem;
+      text-align:center;
+    }
+    .top-tip{
+      position:absolute;
+      left:0;
+      top:-40/@rem;
+      width: 100%;
+      height:40/@rem;
+      line-height:40/@rem;
+      text-align:center;
+      color: #B9B9B9;
+      background: #f0f0f0;
+      font-size:12/@rem;
+      letter-spacing: @font-spacing1;
+    }
+  }
+}
+
+/*底线样式*/
+.no-data {
+  font-size:12/@rem;
+  line-height:17/@rem;
+  letter-spacing: @font-spacing1;
+  color: #B9B9B9;
+  width:100%;
+  padding-top:8/@rem;
+  padding-bottom:30/@rem;
+  text-align:center;
+  margin-bottom:50/@rem;
+}
+

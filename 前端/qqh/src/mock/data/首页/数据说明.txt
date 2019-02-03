@@ -24,7 +24,7 @@ desc: 描述
 接口名：nearInfo
 数据模板：nearInfo.json
 传到后台字段:
-province: 省 例如：(province:湖南省)
+province: 省 例如：(province:湖南)
 后台数据字段说明:
 articleId: 文章ID
 type: 类型（动物，植物）

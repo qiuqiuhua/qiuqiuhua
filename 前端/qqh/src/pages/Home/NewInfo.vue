@@ -3,7 +3,7 @@
         <div class="card-content" id="new_info">
           <ul>
             <li v-for="(info, index) in newInfos" :key="index">
-              <router-link :to="`/art_detail${info.articleId}`">
+              <router-link :to="`/art_detail/${info.articleId}`">
                 <div class="imgBox"><img :src="info.imgSrc"></div>
                 <div class="info_wrap">
                   <div class="infos">
@@ -23,15 +23,24 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {reqNewInfo} from '../../api'
 
 export default {
-  mounted () {
-    this.$store.dispatch('getNewInfo')
+  data () {
+    return {
+      newInfos: []
+    }
   },
 
-  computed: {
-    ...mapState(['newInfos'])
+  mounted () {
+    this.getNewInfo()
+  },
+
+  methods: {
+    async getNewInfo () {
+      const result = await reqNewInfo()
+      this.newInfos = result.data
+    }
   }
 }
 </script>
@@ -40,63 +49,6 @@ export default {
   @import '../../common/less/mixins';
 
   .card-content {
-    > ul {
-      > li {
-        position:relative;
-        width: 100%;
-        height: 118/@rem;
-        padding: 11/@rem 22/@rem 11/@rem 16/@rem;
-        box-sizing:border-box;
-        .imgBox {
-          width: 90/@rem;
-          height: 90/@rem;
-          border-radius: 10/@rem;
-          display:inline-block;
-          vertical-align:middle;
-          img {
-            width: 100%;
-          }
-        }
-        .info_wrap {
-          display:inline-block;
-          vertical-align:middle;
-          padding-left: 16/@rem;
-          .infos {
-            line-height: 20/@rem;
-            font-size:@font-size1;
-            color:@font-color1;
-            letter-spacing: @font-spacing1;
-            width:222/@rem;
-            .info {
-              float: left;
-              width: 50%;
-              margin-bottom:8/@rem;
-            }
-            .desc {
-              width:100%;
-              text-align:justify;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-box-orient: vertical;
-              -webkit-line-clamp: 2;
-              overflow: hidden;
-            }
-          }
-        }
-        .line {
-          width: 269/@rem;
-          height: 1/@rem;
-          background:#f0f0f0;
-          position:absolute;
-          right:0;
-          bottom:0;
-        }
-        &:last-child{
-          .line {
-            display:none;
-          }
-        }
-      }
-    }
+    .list_info();
   }
 </style>

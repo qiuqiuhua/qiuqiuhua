@@ -62,26 +62,23 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
 import Swiper from 'swiper'
 import 'swiper/dist/css/swiper.min.css'
 import BMap from 'BMap'
+import {reqSwiper} from '../../api'
 import Header from '../../components/Header/Header.vue'
 
 export default {
   data () {
     return {
-      province: ''
+      province: '', // 当前定位省份
+      swipers: [] // 轮播图
     }
   },
 
   mounted () {
-    this.$store.dispatch('getSwiper')
+    this.getSwiper()
     this.showPosition()
-  },
-
-  computed: {
-    ...mapState(['swipers'])
   },
 
   watch: {
@@ -100,12 +97,17 @@ export default {
   },
 
   methods: {
+    async getSwiper () {
+      const result = await reqSwiper()
+      this.swipers = result.data
+    },
+
     showPosition () {
       const geolocation = new BMap.Geolocation()
       var _this = this
       geolocation.getCurrentPosition(function (position) {
-        let city = position.address.city             // 获取城市信息
-        let province = position.address.province    // 获取省份信息
+        let city = position.address.city
+        let province = position.address.province.substring(0, 2)
         _this.province = province
         _this.$store.state.province = province
       }, function (e) {
@@ -221,15 +223,7 @@ export default {
        }
      }
      .underline {
-       font-size:12/@rem;
-       line-height:17/@rem;
-       letter-spacing: @font-spacing1;
-       color: #B9B9B9;
-       width:100%;
-       padding-top:8/@rem;
-       padding-bottom:30/@rem;
-       text-align:center;
-       margin-bottom:50/@rem;
+       .no-data();
      }
    }
  }

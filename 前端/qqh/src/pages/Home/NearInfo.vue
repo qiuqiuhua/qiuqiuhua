@@ -25,15 +25,24 @@
 </template>
 
 <script>
-import {mapState} from 'vuex'
+import {reqNearInfo} from '../../api'
 
 export default {
-  mounted () {
-    this.$store.dispatch('getNearInfo')
+  data () {
+    return {
+      nearInfos: []
+    }
   },
 
-  computed: {
-    ...mapState(['nearInfos'])
+  mounted () {
+    this.getNearInfo()
+  },
+
+  methods: {
+    async getNearInfo () {
+      const result = await reqNearInfo()
+      this.nearInfos = result.data
+    }
   }
 }
 </script>
@@ -42,63 +51,6 @@ export default {
   @import '../../common/less/mixins';
 
   .card-content {
-    > ul {
-      > li {
-        position:relative;
-        width: 100%;
-        height: 118/@rem;
-        padding: 11/@rem 22/@rem 11/@rem 16/@rem;
-        box-sizing:border-box;
-        .imgBox {
-          width: 90/@rem;
-          height: 90/@rem;
-          border-radius: 10/@rem;
-          display:inline-block;
-          vertical-align:middle;
-          img {
-            width: 100%;
-          }
-        }
-        .info_wrap {
-          display:inline-block;
-          vertical-align:middle;
-          padding-left: 16/@rem;
-          .infos {
-            line-height: 20/@rem;
-            font-size:@font-size1;
-            color:@font-color1;
-            letter-spacing: @font-spacing1;
-            width:222/@rem;
-            .info {
-              float: left;
-              width: 50%;
-              margin-bottom:8/@rem;
-            }
-            .desc {
-              width:100%;
-              text-align:justify;
-              text-overflow: ellipsis;
-              display: -webkit-box;
-              -webkit-line-clamp: 2;
-              -webkit-box-orient: vertical;
-              overflow: hidden;
-            }
-          }
-        }
-        .line {
-          width: 269/@rem;
-          height: 1/@rem;
-          background:#f0f0f0;
-          position:absolute;
-          right:0;
-          bottom:0;
-        }
-        &:last-child{
-          .line {
-            display:none;
-          }
-        }
-      }
-    }
+    .list_info();
   }
 </style>
