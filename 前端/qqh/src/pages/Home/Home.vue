@@ -168,10 +168,9 @@ export default {
        background:#fff;
        padding:12/@rem 15/@rem 9/@rem;
        .tab-items {
-         width:345/@rem;
          display:flex;
-         justify-content:space-between;
          .tab-item {
+           flex: 1;
            a {
              display:block;
              text-align:center;
@@ -201,12 +200,11 @@ export default {
        border-bottom: 1px solid #f0f0f0;
        .card-tabs {
          .clearfix();
+         display: flex;
          .card-tab {
-           float:left;
+           flex: 1;
            height: 21/@rem;
            line-height: 21/@rem;
-           width: 50%;
-           box-sizing:border-box;
            text-align:center;
            font-size:@font-size;
            letter-spacing: @font-spacing;

@@ -61,16 +61,15 @@ export default {}
       width: 323/@rem;
       margin:3/@rem 26/@rem 0;
       display: flex;
-      justify-content:space-between;
       .tab-item {
-        width: 25/@rem;
+        flex: 1;
         a {
           text-align: center;
           display: block;
           width: 100%;
           height: 100%;
           .item_icon {
-            display:block;
+            display:inline-block;
             width: 25/@rem;
             height: 25/@rem;
             background-size:25/@rem 25/@rem;

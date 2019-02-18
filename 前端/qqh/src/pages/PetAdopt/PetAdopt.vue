@@ -6,18 +6,23 @@
       <div class="content">
         <div class="search_wrap">
           <div class="selectBox">
-            <select ref="provinceSel">
+            <select id="provinceSel" ref="provinceSel">
               <option value="">全部</option>
               <option v-for="(item, index) in provinceArr" :key="index" :value="item.provinceName">
                 {{item.provinceName}}
               </option>
             </select>
-            <span>
+            <label for="provinceSel">
               <i class="iconfont icon-iconarrowdown01"></i>
-            </span>
+            </label>
           </div>
           <div class="inputBox">
-            <input type="text" v-model="searchText" placeholder="请输入搜索内容">
+            <div v-show="!showInput" @click="inputShow">
+              <div>
+                请输入搜索内容
+              </div>
+            </div>
+            <input type="text" v-model="searchText" v-show="showInput" ref="searchInput">
           </div>
           <a href="javascript:;">搜索</a>
         </div>
@@ -62,7 +67,8 @@ export default {
       totalPage: 0, // 一共几页
       petAdoptInfos: [], // 宠物领养信息列表
       underText: '', // 底部文本
-      provinceSelect: '' // 当前选中的省市
+      provinceSelect: '', // 当前选中的省市
+      showInput: false
     }
   },
 
@@ -101,6 +107,10 @@ export default {
   },
 
   methods: {
+    inputShow () {
+      this.showInput = true
+    },
+
     async getPetAdoptInfos () {
       const {pageSize, pageNum, provinceSelect} = this
       if (this.pageNum === this.totalPage) {
@@ -132,6 +142,14 @@ export default {
     }
   },
 
+  watch: {
+    showInput () {
+      this.$nextTick(function () {
+        this.$refs.searchInput.focus()
+      })
+    }
+  },
+
   components: {
     Header
   }
@@ -157,17 +175,14 @@ export default {
           width: 61/@rem;
           height: 29/@rem;
           select {
-            width: 100%;
             color:#999;
             font-size:15/@rem;
             height: 29/@rem;
             line-height:29/@rem;
             background:#fff;
           }
-          span {
-            position:absolute;
-            right:0;
-            top:0;
+          label {
+            float:right;
             i {
               font-size:11.3/@rem;
               color:#999;
@@ -182,21 +197,33 @@ export default {
           height:29/@rem;
           background:#f0f0f0;
           border-radius:14.5/@rem;
-          background-size:12/@rem 12/@rem;
-          background-position: 57/@rem 8/@rem;
-          background-repeat: no-repeat;
-          .bg-image('./images/sousuo');
+          > div {
+            width:100%;
+            text-align:center;
+            > div {
+              display:inline-block;
+              color:#999;
+              height:29/@rem;
+              line-height:29/@rem;
+              background:#f0f0f0;
+              font-size:13/@rem;
+              background-size:12/@rem 12/@rem;
+              background-position: 0 8/@rem;
+              background-repeat: no-repeat;
+              padding-left: 15/@rem;
+              .bg-image('./images/sousuo');
+            }
+          }
           input {
             display:block;
-            width:150/@rem;
+            width:100%;
             box-sizing:border-box;
             color:#999;
             font-size:13/@rem;
-            margin-left:69/@rem;
             height:29/@rem;
             line-height:29/@rem;
             background:#f0f0f0;
-            padding:0 3/@rem;
+            padding:0 10/@rem;
             border-radius:14.5/@rem;
             &::-webkit-input-placeholder{
               color:#999;
@@ -211,9 +238,9 @@ export default {
         }
       }
       .wrapper {
-          position: fixed;
+          position: absolute;
           left: 0;
-          top: 105/@rem;
+          top: 95/@rem;
           bottom: 50/@rem;
           width: 100%;
           overflow:hidden;
