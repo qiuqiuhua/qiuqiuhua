@@ -1,6 +1,7 @@
 export default {
   province: '', // 当前省份
-  pageSize: '', // 设置一页多少条数据
+  pageSize: 10, // 设置一页多少条数据
+  showFooter: true, // 设置一页多少条数据
   provinceArr: [
     {provinceId: 340000, provinceName: '安徽'},
     {provinceId: 110000, provinceName: '北京'},

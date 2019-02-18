@@ -22,7 +22,7 @@
                 请输入搜索内容
               </div>
             </div>
-            <input type="text" v-model="searchText" v-show="showInput" ref="searchInput">
+            <input type="text" v-model="searchText" v-show="showInput" ref="searchInput" @focus="hideFooter" @blur="showFooter">
           </div>
           <a href="javascript:;">搜索</a>
         </div>
@@ -80,7 +80,7 @@ export default {
       _this.scroll = new BScroll(this.$refs.wrapper, {
         click: true,
         pullUpLoad: {
-          threshold: -30 // 当上拉距离超过30px时触发 pullingUp 事件
+          threshold: -10 // 当上拉距离超过30px时触发 pullingUp 事件
         },
         pullDownRefresh: {
           threshold: 20, // 下拉距离超过20px触发pullingDown事件
@@ -107,6 +107,14 @@ export default {
   },
 
   methods: {
+    hideFooter () {
+      this.$store.state.showFooter = false
+    },
+
+    showFooter () {
+      this.$store.state.showFooter = true
+    },
+
     inputShow () {
       this.showInput = true
     },
@@ -134,11 +142,11 @@ export default {
         _this.scroll.finishPullDown()
         _this.scroll.refresh()
       }, 2000)
+      this.pageNum++
       if (this.pageNum === this.totalPage) {
         this.underText = '我是有底线的'
         return false
       }
-      this.pageNum++
     }
   },
 
@@ -160,6 +168,9 @@ export default {
   @import '../../common/less/mixins';
 
   #petAdopt {
+    width:100%;
+    height:100%;
+    background:#f0f0f0;
     .content {
       margin-top:44/@rem;
       .search_wrap {

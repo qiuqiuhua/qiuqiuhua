@@ -68,7 +68,7 @@ let petImgArr = [
 ]
 
 let petAdoptInfo = Mock.mock({
-  'totalNum': 45,
+  'totalNum': 15,
   'list|10': [{
     'articleId|1-1000': 1,
     'nick': '@cword(2, 5)',
