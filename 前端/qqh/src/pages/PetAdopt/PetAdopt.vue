@@ -22,7 +22,7 @@
                 请输入搜索内容
               </div>
             </div>
-            <input type="text" v-model="searchText" v-show="showInput" ref="searchInput" @focus="hideFooter" @blur="showFooter">
+            <input type="text" v-model="searchText" v-show="showInput" >
           </div>
           <a href="javascript:;">搜索</a>
         </div>
@@ -83,7 +83,7 @@ export default {
           threshold: -10 // 当上拉距离超过30px时触发 pullingUp 事件
         },
         pullDownRefresh: {
-          threshold: 10, // 下拉距离超过20px触发pullingDown事件
+          threshold: -10, // 下拉距离超过20px触发pullingDown事件
           stop: 40 // 回弹停留在距离顶部20px的位置
         }
       })
@@ -108,14 +108,6 @@ export default {
   },
 
   methods: {
-    hideFooter () {
-      // this.$store.state.showFooter = false
-    },
-
-    showFooter () {
-      // this.$store.state.showFooter = true
-    },
-
     inputShow () {
       this.showInput = true
     },
@@ -135,14 +127,12 @@ export default {
         this.underText = '暂无数据'
         return false
       }
+
       this.petAdoptInfos = this.petAdoptInfos.concat(result.data.list)
       this.totalPage = Math.ceil(this.totalNum / this.pageSize)
-      let _this = this
-      setTimeout(function () {
-        _this.scroll.finishPullUp()
-        _this.scroll.finishPullDown()
-        _this.scroll.refresh()
-      }, 2000)
+      this.scroll.finishPullUp()
+      this.scroll.finishPullDown()
+
       if (this.pageNum === this.totalPage) {
         this.underText = '我是有底线的'
         return false
@@ -156,6 +146,13 @@ export default {
       this.$nextTick(function () {
         this.$refs.searchInput.focus()
       })
+    },
+
+    petAdoptInfos () {
+      let _this = this
+      setTimeout(function () {
+        _this.scroll.refresh()
+      }, 50)
     }
   },
 
