@@ -83,7 +83,7 @@ export default {
           threshold: -10 // 当上拉距离超过30px时触发 pullingUp 事件
         },
         pullDownRefresh: {
-          threshold: 20, // 下拉距离超过20px触发pullingDown事件
+          threshold: 10, // 下拉距离超过20px触发pullingDown事件
           stop: 40 // 回弹停留在距离顶部20px的位置
         }
       })
@@ -97,6 +97,7 @@ export default {
       _this.scroll.on('pullingDown', () => {
         _this.showTopTip = true
         _this.pageNum = 1
+        this.underText = '加载中...'
         _this.getPetAdoptInfos()
       })
     })
@@ -108,11 +109,11 @@ export default {
 
   methods: {
     hideFooter () {
-      this.$store.state.showFooter = false
+      // this.$store.state.showFooter = false
     },
 
     showFooter () {
-      this.$store.state.showFooter = true
+      // this.$store.state.showFooter = true
     },
 
     inputShow () {
@@ -142,11 +143,11 @@ export default {
         _this.scroll.finishPullDown()
         _this.scroll.refresh()
       }, 2000)
-      this.pageNum++
       if (this.pageNum === this.totalPage) {
         this.underText = '我是有底线的'
         return false
       }
+      this.pageNum++
     }
   },
 
@@ -206,17 +207,17 @@ export default {
           margin-left:17/@rem;
           width:219/@rem;
           height:29/@rem;
-          background:#f0f0f0;
           border-radius:14.5/@rem;
           > div {
             width:100%;
             text-align:center;
+            background:#f0f0f0;
+            border-radius:14.5/@rem;
             > div {
               display:inline-block;
               color:#999;
               height:29/@rem;
               line-height:29/@rem;
-              background:#f0f0f0;
               font-size:13/@rem;
               background-size:12/@rem 12/@rem;
               background-position: 0 8/@rem;
@@ -252,7 +253,7 @@ export default {
           position: absolute;
           left: 0;
           top: 95/@rem;
-          bottom: 50/@rem;
+          bottom: 0;
           width: 100%;
           overflow:hidden;
           background:#f0f0f0;
