@@ -230,7 +230,7 @@ export default {
             display:block;
             width:100%;
             box-sizing:border-box;
-            color:#999;
+            color:#333;
             font-size:13/@rem;
             height:29/@rem;
             line-height:29/@rem;
