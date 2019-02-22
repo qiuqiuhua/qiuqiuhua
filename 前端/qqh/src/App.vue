@@ -21,17 +21,16 @@ export default {
 
   mounted () {
     // window.onresize监听页面高度的变化
-    let _this = this
     window.onresize = () => {
       return (() => {
-        if (!_this.isResize) {
+        if (!this.isResize) {
           // 默认屏幕高度
-          _this.docmHeight = document.documentElement.clientHeight
-          _this.isResize = true
+          this.docmHeight = document.documentElement.clientHeight
+          this.isResize = true
         }
 
         // 实时屏幕高度
-        _this.showHeight = document.body.clientHeight
+        this.showHeight = document.body.clientHeight
       })()
     }
   },

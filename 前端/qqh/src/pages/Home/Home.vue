@@ -104,12 +104,11 @@ export default {
 
     showPosition () {
       const geolocation = new BMap.Geolocation()
-      var _this = this
-      geolocation.getCurrentPosition(function (position) {
+      geolocation.getCurrentPosition((position) => {
         let city = position.address.city
         let province = position.address.province.substring(0, 2)
-        _this.province = province
-        _this.$store.state.province = province
+        this.province = province
+        this.$store.state.province = province
       }, function (e) {
         console.log('定位失败')
       }, {provider: 'baidu'})

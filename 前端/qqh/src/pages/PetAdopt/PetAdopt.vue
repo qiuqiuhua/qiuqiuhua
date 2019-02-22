@@ -75,9 +75,8 @@ export default {
   mounted () {
     this.provinceSelect = this.$refs.provinceSel.value = this.province
     this.getPetAdoptInfos()
-    let _this = this
     this.$nextTick(() => {
-      _this.scroll = new BScroll(this.$refs.wrapper, {
+      this.scroll = new BScroll(this.$refs.wrapper, {
         click: true,
         pullUpLoad: {
           threshold: -10 // 当上拉距离超过30px时触发 pullingUp 事件
@@ -88,17 +87,17 @@ export default {
         }
       })
 
-      _this.scroll.on('pullingUp', () => {
-        _this.underText = '加载中...'
-        _this.showUnderText = true
-        _this.getPetAdoptInfos()
+      this.scroll.on('pullingUp', () => {
+        this.underText = '加载中...'
+        this.showUnderText = true
+        this.getPetAdoptInfos()
       })
 
-      _this.scroll.on('pullingDown', () => {
-        _this.showTopTip = true
-        _this.pageNum = 1
+      this.scroll.on('pullingDown', () => {
+        this.showTopTip = true
+        this.pageNum = 1
         this.underText = '加载中...'
-        _this.getPetAdoptInfos()
+        this.getPetAdoptInfos()
       })
     })
   },
@@ -149,9 +148,8 @@ export default {
     },
 
     petAdoptInfos () {
-      let _this = this
-      setTimeout(function () {
-        _this.scroll.refresh()
+      setTimeout(() => {
+        this.scroll.refresh()
       }, 50)
     }
   },
