@@ -2,7 +2,7 @@
     <div>
       <div class="search_wrap">
         <div class="selectBox">
-          <select id="provinceSel" ref="provinceSel">
+          <select id="provinceSel" ref="provinceSel" @change="changeProvince">
             <option value="">全部</option>
             <option v-for="(item, index) in provinceArr" :key="index" :value="item.provinceName">
               {{item.provinceName}}
@@ -48,6 +48,10 @@ export default {
   methods: {
     inputShow () {
       this.showInput = true
+    },
+
+    changeProvince () {
+      this.provinceSelect = this.$refs.provinceSel.value
     }
   },
 
@@ -59,7 +63,11 @@ export default {
     },
 
     searchText (value) {
+      this.$emit('searchText', value)
+    },
 
+    provinceSelect (value) {
+      this.$emit('provinceSelect', value)
     }
   }
 }

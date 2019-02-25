@@ -4,7 +4,7 @@
         <span class="title" slot="headerTitle">宠物领养</span>
       </Header>
       <div class="content">
-        <SearchWrap/>
+        <SearchWrap @searchText="getSearchText"  @provinceSelect="getProvinceSelect"/>
         <div class="pets">
           <div class="wrapper" ref="wrapper">
             <ul>
@@ -53,7 +53,6 @@ export default {
   },
 
   mounted () {
-    this.provinceSelect = this.$refs.provinceSel.value = this.province
     this.getInfos()
     this.$nextTick(() => {
       this.scroll = new BScroll(this.$refs.wrapper, {
@@ -69,12 +68,10 @@ export default {
 
       this.scroll.on('pullingUp', () => {
         this.underText = '加载中...'
-        this.showUnderText = true
         this.getInfos()
       })
 
       this.scroll.on('pullingDown', () => {
-        this.showTopTip = true
         this.pageNum = 1
         this.underText = '加载中...'
         this.getInfos()
@@ -87,6 +84,14 @@ export default {
   },
 
   methods: {
+    getSearchText (searchText) {
+      this.searchText = searchText
+    },
+
+    getProvinceSelect (provinceSelect) {
+      this.provinceSelect = provinceSelect
+    },
+
     async getInfos () {
       const {pageSize, pageNum, provinceSelect} = this
       if (this.pageNum === this.totalPage) {
