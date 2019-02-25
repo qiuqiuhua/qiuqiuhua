@@ -1,0 +1,19 @@
+宠物领养页面：宠物领养信息
+接口名：petSeekInfo
+数据模板：petSeekInfo.json
+传到后台字段:
+provinceSelect: 省 例如：(provinceSelect:湖南)  为空时，查询所有数据
+pageSize: 一页几条数据 例如：(pageSize:10)
+pageNum: 当前第几页 例如：(pageNum:2)
+后台数据字段说明:
+totalNum: 一共几条数据
+articleId: 文章ID
+nick: 昵称
+sex: 动物性别（公，母）
+age: 年龄
+addr: 丢失地址
+imgSrc: 图片路径
+desc: 描述
+
+
+

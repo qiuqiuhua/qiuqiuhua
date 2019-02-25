@@ -3,6 +3,7 @@
       <Header>
         <span class="title" slot="headerTitle">球球花宠物领养社区</span>
       </Header>
+      <Test></Test>
       <div class="content">
         <div class="swiper-container">
           <div class="swiper-wrapper">
@@ -67,6 +68,7 @@ import 'swiper/dist/css/swiper.min.css'
 import BMap from 'BMap'
 import {reqSwiper} from '../../api'
 import Header from '../../components/Header/Header.vue'
+import Test from '../../components/Test/Test.vue'
 
 export default {
   data () {
@@ -116,7 +118,8 @@ export default {
   },
 
   components: {
-    Header
+    Header,
+    Test
   }
 }
 </script>

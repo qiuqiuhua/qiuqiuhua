@@ -5,7 +5,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  mounted () {
+    this.test.$on('text1', function (data) {
+      console.log('text1=' + JSON.stringify(data))
+    })
+  }
+}
 </script>
 
 <style lang="less" rel="stylesheet/less" scoped>

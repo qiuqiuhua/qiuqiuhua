@@ -81,3 +81,32 @@ let petAdoptInfo = Mock.mock({
 })
 
 Mock.mock('/petAdoptInfo', {data: petAdoptInfo})
+
+// 植物送养页面
+let plantImgArr = [
+  'http://qiuqiuhua.com/upload/img/info101@3x.png',
+  'http://qiuqiuhua.com/upload/img/info102@3x.png',
+  'http://qiuqiuhua.com/upload/img/info103@3x.png',
+  'http://qiuqiuhua.com/upload/img/info104@3x.png',
+  'http://qiuqiuhua.com/upload/img/info105@3x.png',
+  'http://qiuqiuhua.com/upload/img/info106@3x.png',
+  'http://qiuqiuhua.com/upload/img/info107@3x.png',
+  'http://qiuqiuhua.com/upload/img/info108@3x.png'
+]
+
+let plantAdoptInfo = Mock.mock({
+  'totalNum': 25,
+  'list|10': [{
+    'articleId|1-1000': 1,
+    'nick': '@cword(2, 5)',
+    'age|1': ageArr,
+    'addr': '上海',
+    'imgSrc|1': plantImgArr,
+    'desc': '@cword(5,40)'
+  }]
+})
+
+Mock.mock('/plantAdoptInfo', {data: plantAdoptInfo})
+
+// 寻找宠物页面
+Mock.mock('/petSeekInfo', {data: petAdoptInfo})

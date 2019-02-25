@@ -18,7 +18,7 @@ export default {
   },
 
   mounted () {
-    this.$emit('text1', {text1: this.text1, text2: this.text2})
+    this.test.$emit('text1', {text1: this.text1, text2: this.text2})
   }
 }
 </script>

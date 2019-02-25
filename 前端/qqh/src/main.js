@@ -7,6 +7,7 @@ import store from './store'
 import './mock/mockServer'
 
 Vue.config.productionTip = false
+Vue.prototype.test = new Vue()
 
 /* eslint-disable no-new */
 new Vue({
