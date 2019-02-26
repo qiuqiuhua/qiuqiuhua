@@ -86,10 +86,15 @@ export default {
   methods: {
     getSearchText (searchText) {
       this.searchText = searchText
+      console.log('searchText=' + searchText)
     },
 
     getProvinceSelect (provinceSelect) {
       this.provinceSelect = provinceSelect
+      console.log('provinceSelect=' + provinceSelect)
+      this.pageNum = 1
+      this.underText = '加载中...'
+      this.getInfos()
     },
 
     async getInfos () {
